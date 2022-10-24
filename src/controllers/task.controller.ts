@@ -12,8 +12,10 @@ class TaskController {
     async readOneByID(id : string){
         return await taskService.readOneByID(id);
     }
+    async delete(id: string){
+        return await taskService.delete(id);
+    }
     update(){}
-    delete(){}
 
 }
 

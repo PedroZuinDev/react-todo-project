@@ -1,4 +1,4 @@
-import { collection, getDocs , setDoc , doc, query , where} from "firebase/firestore/lite";
+import { collection, getDocs , setDoc , doc, query , where , deleteDoc} from "firebase/firestore/lite";
 import { ITask } from "../@types/task.interface";
 import { databseInstance } from "../firebase/configuration";
 
@@ -20,7 +20,13 @@ class TaskService{
         const collectionQuerys = await getDocs(queryToExecute);
         return collectionQuerys.docs.map(doc => doc.data()) as Array<ITask>;
     }
+    async delete(id: string){
+        const queryToExecute = query(this.collectionQuery, where("uniqueid" , "==" , id))
+        const collectionQuerys = await getDocs(queryToExecute);
+        return Promise.all(collectionQuerys.docs.map(async (doc) => {
+            return await deleteDoc(doc.ref)
+        }));
+    }
     update(){}
-    delete(){}
 }
 export const taskService = new TaskService();
