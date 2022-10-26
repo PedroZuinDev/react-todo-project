@@ -20,7 +20,7 @@
         const app = initializeApp(firebaseConfig);
         export const databseInstance = getFirestore(app);
 
-This Started with Firebase[link da doc]: (https://firebase.google.com/docs/web/setup).
+This Started with Firebase [link da doc](https://firebase.google.com/docs/web/setup).
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 # Getting Started with Create React App
