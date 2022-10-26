@@ -15,7 +15,9 @@ class TaskController {
     async delete(id: string){
         return await taskService.delete(id);
     }
-    update(){}
+    async checkOrUncheckTask(idtask : string){
+        return await taskService.checkOrUncheckTask(idtask);
+    }
 
 }
 
