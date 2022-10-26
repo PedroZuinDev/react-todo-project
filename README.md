@@ -1,3 +1,28 @@
+# Configuração do Projeto
+### npm install firebase && Configuração do firebase
+  - Inicialize o Firebase no app e crie um objeto do app Firebase:
+  crie uma pasta com o arquivo configuration.ts -> /src/firebase/configuration.ts
+
+        import { initializeApp } from "firebase/app";
+        import { getAnalytics } from "firebase/analytics";
+        import { getFirestore, collection, getDocs } from 'firebase/firestore/lite';
+
+        const firebaseConfig = {
+          apiKey: "",
+          authDomain: "",
+          projectId: "",
+          storageBucket: "",
+          messagingSenderId: "",
+          appId: "",
+          measurementId: ""
+        };
+
+        const app = initializeApp(firebaseConfig);
+        export const databseInstance = getFirestore(app);
+
+This Started with Firebase[link da doc]: (https://firebase.google.com/docs/web/setup).
+
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
