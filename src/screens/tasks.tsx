@@ -9,12 +9,15 @@ export const TasksScreen = () => {
   const [showLoading, setShowLoading] = useState(false);
 
   useEffect(() => {
+    setShowLoading(true);
     taskController
       .readAll()
       .then((response) => {
+        setShowLoading(false);
         setTasks(response);
       })
       .catch((err) => {
+        setShowLoading(false);
         throw err.message;
       });
   }, []);
