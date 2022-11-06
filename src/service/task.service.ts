@@ -7,7 +7,7 @@ import { databseInstance } from "../firebase/configuration";
 class TaskService{
 
     private collectionQuery = collection(databseInstance , "task");
-
+    
     async insert(task : ITask){
        return await setDoc(doc(this.collectionQuery) , task , { merge : true });
     }
