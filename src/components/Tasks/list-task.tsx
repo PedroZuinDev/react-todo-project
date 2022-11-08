@@ -42,7 +42,7 @@ export const ShowListTask = (props: any)=>{
                 title : "Editar Tarefa"
             });
             let cloneTasks = props.tasks;
-            const indexObject = cloneTasks.indexOf((row: ITask)=> row.uniqueid === returnModalValue?.uniqueid);
+            const indexObject = cloneTasks.indexOf((row: ITask) => row.uniqueid === returnModalValue?.uniqueid);
             cloneTasks[indexObject] = returnModalValue;
             return props.setTasks(cloneTasks);
         };
