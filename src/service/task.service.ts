@@ -32,5 +32,10 @@ class TaskService{
         const collectionQuerys = await getDocs(queryToExecute);
         return Promise.all(collectionQuerys.docs.map(async (doc) => await updateDoc(doc.ref , {status : doc.data().status === "open" ? "close" : "open"})));
     } 
+    async update(task: ITask){
+        const queryToExecute = query(this.collectionQuery, where("uniqueid" , "==" , task.uniqueid));
+        const collectionQuerys = await getDocs(queryToExecute);
+        return Promise.all(collectionQuerys.docs.map(async (doc) => await updateDoc(doc.ref , {description : task.description , name : task.name , status : task.status})));
+    }
 }
 export const taskService = new TaskService();

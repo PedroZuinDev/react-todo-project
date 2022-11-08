@@ -38,9 +38,13 @@ export const ShowListTask = (props: any)=>{
         
         const editItem = async (id: string) => {
             const taskSelected = props.tasks.find((task : ITask) => task.uniqueid === id) as ITask;
-            showModalSeeDetailsTaskEdit(taskSelected , {
+            const returnModalValue = await showModalSeeDetailsTaskEdit(taskSelected , {
                 title : "Editar Tarefa"
             });
+            let cloneTasks = props.tasks;
+            const indexObject = cloneTasks.indexOf((row: ITask)=> row.uniqueid === returnModalValue?.uniqueid);
+            cloneTasks[indexObject] = returnModalValue;
+            return props.setTasks(cloneTasks);
         };
 
         const showTasks = () =>
@@ -50,7 +54,6 @@ export const ShowListTask = (props: any)=>{
             const classIfClose =
                 "max-w-auto bg-green-500 color-white border-solid border-2 border-sky-500 mt-2 mb-2 rounded overflow-hidden shadow-lg";
 
-            //@ts-nocheck
             return (
                 <div
                 key={index.uniqueid}
@@ -71,8 +74,6 @@ export const ShowListTask = (props: any)=>{
                 </div>
         );
         });
-
-
         return(
         <div>
             <div className="grid grid-cols-1 mt-2">{showTasks()}</div>
