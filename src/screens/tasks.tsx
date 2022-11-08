@@ -7,6 +7,7 @@ import { ShowListTask } from "../components/Tasks/list-task";
 export const TasksScreen = () => {
   const [tasks, setTasks] = useState([] as Array<ITask>);
   const [showLoading, setShowLoading] = useState(false);
+  const [changeListTasks , setChangedListsTasks] = useState(false);
 
   useEffect(() => {
     setShowLoading(true);
@@ -20,12 +21,12 @@ export const TasksScreen = () => {
         setShowLoading(false);
         throw err.message;
       });
-  }, []);
+  }, [changeListTasks]);
 
   return (
     <>
       <FormToAddTask showLoading={showLoading} setShowLoading={setShowLoading} tasks={tasks} setTasks={setTasks} />
-      <ShowListTask tasks={tasks} setTasks={setTasks} showLoading={showLoading} setShowLoading={setShowLoading} />
+      <ShowListTask setChangedListsTasks={setChangedListsTasks} tasks={tasks} setTasks={setTasks} showLoading={showLoading} setShowLoading={setShowLoading} />
     </>
   );
 };

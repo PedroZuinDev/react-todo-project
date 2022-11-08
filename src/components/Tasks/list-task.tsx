@@ -7,10 +7,9 @@ import { showGenericToast } from "../Toast/success.toast";
 
 export const ShowListTask = (props: any)=>{
 
-
         const showItemDetail = async (id: string) => {
             const taskSelected = props.tasks.find((task: ITask) => task.uniqueid === id) as ITask;
-            showModalSeeDetailsTaskEdit(taskSelected , {
+            await showModalSeeDetailsTaskEdit(taskSelected , {
                 title : "Visualizar Tarefa"
             });
         }
@@ -38,13 +37,10 @@ export const ShowListTask = (props: any)=>{
         
         const editItem = async (id: string) => {
             const taskSelected = props.tasks.find((task : ITask) => task.uniqueid === id) as ITask;
-            const returnModalValue = await showModalSeeDetailsTaskEdit(taskSelected , {
+            await showModalSeeDetailsTaskEdit(taskSelected , {
                 title : "Editar Tarefa"
             });
-            let cloneTasks = props.tasks;
-            const indexObject = cloneTasks.indexOf((row: ITask) => row.uniqueid === returnModalValue?.uniqueid);
-            cloneTasks[indexObject] = returnModalValue;
-            return props.setTasks(cloneTasks);
+            return props.setChangedListsTasks(true);
         };
 
         const showTasks = () =>
