@@ -7,7 +7,7 @@ import { HomeScreen } from './screens/home';
 
 function App() {
   return (
-      <div className="container flex-row justify-center items-center mr-auto ml-auto mt-10 w-auto rounded" >
+      <div className="container flex-row justify-center items-center mr-auto ml-auto mt-10 w-11/12 rounded" >
           <Router basename='/app'>   
               <NavBarPersonalite />
               <div className="grid grid-cols-1 bg-white w-auto justify-center p-10 rounded">

@@ -19,8 +19,8 @@ ZuinTech
             [✔] - Refactor Service
 
         [] - Next Implementations
-            [] - Create Date of the task;
-            [] - Dead Line of the task;
+            [✔] - Create Date of the task;
+            [✔] - Dead Line of the task;
             [] - Notifications when deadline is end;
                 [] - Send Ask ( Authorizate Chrome send Notification's ? );
 

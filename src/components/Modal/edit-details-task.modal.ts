@@ -38,8 +38,7 @@ export const showModalSeeDetailsTaskEdit = async (taskSelected: ITask , props : 
 
         if(result.isConfirmed){
           try{
-            const returnTaskService = await taskService.update(taskToEdit);
-            console.log("returnTaskService >> " , returnTaskService);
+            await taskService.update(taskToEdit);
             await showGenericToast({icon : "success" , title : "Editado com Sucesso"});
             return taskToEdit;
           }catch(err: any){

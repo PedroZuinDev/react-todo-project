@@ -37,5 +37,10 @@ class TaskService{
         const collectionQuerys = await getDocs(queryToExecute);
         return await Promise.all(collectionQuerys.docs.map(async (doc) => await updateDoc(doc.ref , task)));
     }
+    async readAllByStatus(statusToFilterSelected: string){
+        const queryToExecute = query(this.collectionQuery, where("status" , "==" , statusToFilterSelected));
+        const collectionQuerys = await getDocs(queryToExecute);
+        return collectionQuerys.docs.map(doc => doc.data()) as Array<ITask>;
+    }
 }
 export const taskService = new TaskService();

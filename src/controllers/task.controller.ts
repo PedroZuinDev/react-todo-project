@@ -18,6 +18,12 @@ class TaskController {
     async checkOrUncheckTask(idtask : string){
         return await taskService.checkOrUncheckTask(idtask);
     }
+    async readAllByStatus(statusToFilterSelected: string){
+        if(statusToFilterSelected === ""){
+            return await taskService.readAll();
+        }
+        return await taskService.readAllByStatus(statusToFilterSelected);
+    }
 
 }
 

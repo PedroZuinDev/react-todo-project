@@ -25,7 +25,7 @@ export const TasksScreen = () => {
 
   return (
     <>
-      <FormToAddTask showLoading={showLoading} setShowLoading={setShowLoading} tasks={tasks} setTasks={setTasks} />
+      <FormToAddTask setChangedListsTasks={setChangedListsTasks} changeListTasks={changeListTasks} tasks={tasks} setTasks={setTasks} />
       <ShowListTask setChangedListsTasks={setChangedListsTasks} tasks={tasks} setTasks={setTasks} showLoading={showLoading} setShowLoading={setShowLoading} />
     </>
   );
