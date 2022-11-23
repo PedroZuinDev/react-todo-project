@@ -23,5 +23,3 @@ ZuinTech
             ## [✔] - Dead Line of the task;
             ## [] - Notifications when deadline is end;
                 ## [] - Send Ask ( Authorizate Chrome send Notification's ? );
-
-    
